@@ -134,24 +134,24 @@ export default function UserEditScreen() {
             <View className="flex-row gap-3 bg-white px-4 py-3 dark:bg-gray-800">
               <Pressable
                 className={`flex-1 items-center rounded-lg py-2.5 ${
-                  role === 'ROLE_USER' ? 'bg-blue-600' : 'bg-gray-100 dark:bg-gray-700'
+                  role === 'USER' || role === 'ROLE_USER' ? 'bg-blue-600' : 'bg-gray-100 dark:bg-gray-700'
                 }`}
                 onPress={() => setRole('ROLE_USER')}
               >
                 <Text className={`text-sm font-medium ${
-                  role === 'ROLE_USER' ? 'text-white' : 'text-gray-700 dark:text-gray-300'
+                  role === 'USER' || role === 'ROLE_USER' ? 'text-white' : 'text-gray-700 dark:text-gray-300'
                 }`}>
                   일반 사용자
                 </Text>
               </Pressable>
               <Pressable
                 className={`flex-1 items-center rounded-lg py-2.5 ${
-                  role === 'ROLE_ADMIN' ? 'bg-red-600' : 'bg-gray-100 dark:bg-gray-700'
+                  role === 'ADMIN' || role === 'ROLE_ADMIN' ? 'bg-red-600' : 'bg-gray-100 dark:bg-gray-700'
                 }`}
                 onPress={() => setRole('ROLE_ADMIN')}
               >
                 <Text className={`text-sm font-medium ${
-                  role === 'ROLE_ADMIN' ? 'text-white' : 'text-gray-700 dark:text-gray-300'
+                  role === 'ADMIN' || role === 'ROLE_ADMIN' ? 'text-white' : 'text-gray-700 dark:text-gray-300'
                 }`}>
                   관리자
                 </Text>

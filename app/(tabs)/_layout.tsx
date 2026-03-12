@@ -9,7 +9,7 @@ import { useAuth } from '@/lib/auth-context';
 export default function TabLayout() {
   const colorScheme = useColorScheme();
   const { user } = useAuth();
-  const isAdmin = user?.role === 'ROLE_ADMIN';
+  const isAdmin = user?.role === 'ADMIN' || user?.role === 'ROLE_ADMIN';
 
   return (
     <Tabs
