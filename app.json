@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "mobile-expo",
+    "name": "YDK Lab",
     "slug": "mobile-expo",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/images/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#2563eb"
     },
     "ios": {
       "supportsTablet": true
