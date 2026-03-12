@@ -7,6 +7,7 @@ import 'react-native-reanimated';
 import '../global.css';
 
 import { useColorScheme } from '@/components/useColorScheme';
+import { AuthProvider } from '@/lib/auth-context';
 
 export { ErrorBoundary } from 'expo-router';
 
@@ -43,12 +44,14 @@ function RootLayoutNav() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-        <Stack.Screen name="posts/[id]" options={{ title: '게시글' }} />
-        <Stack.Screen name="posts/create" options={{ title: '게시글 작성' }} />
-      </Stack>
+      <AuthProvider>
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+          <Stack.Screen name="posts/[id]" options={{ title: '게시글' }} />
+          <Stack.Screen name="posts/create" options={{ title: '게시글 작성' }} />
+        </Stack>
+      </AuthProvider>
     </ThemeProvider>
   );
 }
