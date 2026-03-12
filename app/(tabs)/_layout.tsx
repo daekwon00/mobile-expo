@@ -4,9 +4,12 @@ import { Tabs } from 'expo-router';
 
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
+import { useAuth } from '@/lib/auth-context';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const { user } = useAuth();
+  const isAdmin = user?.role === 'ROLE_ADMIN';
 
   return (
     <Tabs
@@ -34,6 +37,20 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <SymbolView
               name={{ ios: 'list.bullet.rectangle', android: 'list', web: 'list' }}
+              tintColor={color}
+              size={24}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="admin"
+        options={{
+          title: '관리',
+          href: isAdmin ? '/(tabs)/admin' : null,
+          tabBarIcon: ({ color }) => (
+            <SymbolView
+              name={{ ios: 'gearshape.fill', android: 'settings', web: 'settings' }}
               tintColor={color}
               size={24}
             />

@@ -50,6 +50,9 @@ function RootLayoutNav() {
           <Stack.Screen name="(auth)" options={{ headerShown: false }} />
           <Stack.Screen name="posts/[id]" options={{ title: '게시글' }} />
           <Stack.Screen name="posts/create" options={{ title: '게시글 작성' }} />
+          <Stack.Screen name="admin/users" options={{ title: '사용자 관리' }} />
+          <Stack.Screen name="admin/user-edit" options={{ title: '사용자 수정' }} />
+          <Stack.Screen name="admin/boards" options={{ title: '게시판 관리' }} />
         </Stack>
       </AuthProvider>
     </ThemeProvider>

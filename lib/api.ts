@@ -120,6 +120,11 @@ class ApiClient {
     return this.request<ApiResponse<T>>(path, { ...options, method: 'PUT', body });
   }
 
+  /** PATCH 요청 */
+  async patch<T>(path: string, body?: unknown, options?: Omit<RequestOptions, 'method' | 'body'>) {
+    return this.request<ApiResponse<T>>(path, { ...options, method: 'PATCH', body });
+  }
+
   /** DELETE 요청 */
   async delete<T>(path: string, options?: Omit<RequestOptions, 'method' | 'body'>) {
     return this.request<ApiResponse<T>>(path, { ...options, method: 'DELETE' });

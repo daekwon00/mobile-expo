@@ -7,3 +7,8 @@ export type {
   PostListParams, CreatePostRequest, UpdatePostRequest,
 } from './post';
 export type { DashboardStats, ChartData } from './dashboard';
+export type {
+  AdminDashboardStats, RecentUser, AdminUser,
+  CreateUserRequest, UpdateUserRequest,
+  AdminBoard, CreateBoardRequest, UpdateBoardRequest,
+} from './admin';
