@@ -8,6 +8,7 @@ type AuthState = {
   user: UserInfo | null;
   isLoading: boolean;
   signIn: (username: string, password: string) => Promise<void>;
+  signUp: (params: { username: string; password: string; name: string; email: string }) => Promise<void>;
   signOut: () => Promise<void>;
 };
 
@@ -62,13 +63,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setUser(result.user);
   }, []);
 
+  const signUp = useCallback(async (params: { username: string; password: string; name: string; email: string }) => {
+    await authApi.register(params);
+    // 회원가입 성공 후 자동 로그인
+    const result = await authApi.login({ username: params.username, password: params.password });
+    setUser(result.user);
+  }, []);
+
   const signOut = useCallback(async () => {
     await authApi.logout();
     setUser(null);
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, isLoading, signIn, signOut }}>
+    <AuthContext.Provider value={{ user, isLoading, signIn, signUp, signOut }}>
       {children}
     </AuthContext.Provider>
   );
